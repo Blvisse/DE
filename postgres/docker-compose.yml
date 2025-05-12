@@ -1,0 +1,14 @@
+services:
+    postgres:
+      image: postgres:13
+      environment:
+        POSTGRES_USER : "postgres"
+        POSTGRES_PASSWORD : "admin"
+        POSTGRES_DB : ny_taxi
+      volumes:
+        - ./../database:/var/lib
+      restart: always
+      ports:
+        - 8080:5432
+
+#pgcli -h localhost -p 8080 -u postgres -d ny_taxi
